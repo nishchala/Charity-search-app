@@ -1,0 +1,43 @@
+{#
+Nijo Jacob, nj398@drexel.edu
+CS530: DUI, Assignment [#4]#}
+
+{% extends 'base.html' %}
+{% set active = "Home" %}
+
+{% block header %}
+<script src="/static/js/Searcher.js"></script>
+{% endblock %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+    <div id="searchContainer">
+        <section class="jumbotron">
+            <div class="text-center">
+                <h1 class="jumbotron-heading">Charity Search</h1>
+                <p class="lead text-muted">Find a worthy charity today!</p>
+                <input class="input-box" type="text" id="inputtext" onkeypress="Charity()">
+                    <button type="button" class ="btn btn-secondary my-2" id="txtSearch" onclick="Charity()">Search</button>
+            </div>
+        </section>
+    </div>
+    <div id="Result" class="search-result-container">
+    </div>
+
+<script>
+
+function Charity() {
+		const searcher = new Searcher();
+            var text = document.getElementById('inputtext').value
+            if(text.length !== 0) {
+                searcher.load(text);
+            }
+        }
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{#
+Nijo Jacob, nj398@drexel.edu
+CS530: DUI, Assignment [#4]#}
+
+{% extends 'base.html' %}
+{% set active = "View" %}
+
+{% block header %}
+<script src="/static/js/viewer.js"></script>
+<link href="/static/css/viewer.css" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+View
+{% endblock %}
+
+{% block content %}
+
+    <div id="Result" class="Description">
+    </div>
+    <div id="organization" class="Description">
+    </div>
+
+<script>
+    const params = (new URL(document.location)).searchParams;
+    const uid = params.get('uid');
+    $(function () {
+        const viewer = new Viewer();
+                viewer.Idinfo(uid);
+    });
+</script>
+
+
+{% endblock %}
